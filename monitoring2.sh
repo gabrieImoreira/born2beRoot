@@ -10,7 +10,7 @@ USED_D=$(df -m --total | awk 'END{print $3}')
 TOTAL_D=$(df -h --total | awk 'END{print $2}')
 PRCT_D=$(df -h --total | awk 'END{print $5}')
 echo "#Disk Usage   :" "${USED_D}/${TOTAL_D}" "(${PRCT_D})"
-echo "#CPU Load     :" "$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} END {print ut}')"
+echo "#CPU Load     :" "$(top -bn1 | grep '^%Cpu' | cut -c 9- | xargs | awk '{printf("%.1f%%"), $1 + $3}')"
 echo "#Last Boot    :" "$(who -b | awk '{print $3,$4}')"
 echo "#LVM in Use   :" $(if [ $(/usr/sbin/blkid | grep -c '/dev/mapper') -eq 0 ]; then echo "no"; else echo "yes"; fi)
 echo "#Connexions TCP  :" "$(ss -s | awk '/TCP:/ {print $2}') ESTABLISHED"
