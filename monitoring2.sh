@@ -13,7 +13,7 @@ echo "#Disk Usage   :" "${USED_D}/${TOTAL_D}" "(${PRCT_D})"
 echo "#CPU Load     :" "$(df -Bm | grep '^/dev/' | grep -v '/boot$' | awk '{ut += $3} END {print ut}')"
 echo "#Last Boot    :" "$(who -b | awk '{print $3,$4}')"
 echo "#LVM in Use   :" $(if [ $(/usr/sbin/blkid | grep -c '/dev/mapper') -eq 0 ]; then echo "no"; else echo "yes"; fi)
-echo "#Connexions TCP  :" "$(ss -s | awk '/TCP:/ {print $2}') $(cat /proc/net/sockstat{,6} | awk '$1 == "TCP:" {print $3}')"
+echo "#Connexions TCP  :" "$(ss -s | awk '/TCP:/ {print $2}') ESTABLISHED"
 echo "#Users Logged :" "$(who | wc -l)"
 echo "#Network      :" "IP $(hostname -I)" "($(/usr/sbin/ifconfig | awk '/ether/ {print $2}'))"
 echo "#Sudo         :" "$(grep -c 'COMMAND' /var/log/sudo/sudo.log)" "cmd"
