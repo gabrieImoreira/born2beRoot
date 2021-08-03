@@ -15,7 +15,7 @@ lvmu=$(if [ $lvm -eq 0 ]; then echo no; else echo yes; fi)
 ctcp=$(ss -s | awk '/TCP:/ {print $2}') 
 ulog=$(who | wc -l)
 ip=$(hostname -I)
-mac=IP $(hostname -I)" "($(/usr/sbin/ifconfig | awk '/ether/ {print $2}'))"
+mac=$(/usr/sbin/ifconfig | awk '/ether/ {print $2}')
 cmds=$(grep -c 'COMMAND' /var/log/sudo/sudo.log)
 wall "	#Architecture: $arc
 	#CPU physical: $pcpu
