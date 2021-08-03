@@ -16,8 +16,10 @@ ctcp=$(ss -s | awk '/TCP:/ {print $2}')
 ulog=$(who | wc -l)
 ip=$(hostname -I)
 mac=$(/usr/sbin/ifconfig | awk '/ether/ {print $2}')
-cmds=$(grep -c 'COMMAND' /var/log/sudo/sudo.log)
-wall "	#Architecture: $arc
+cmd=$(grep -c 'COMMAND' /var/log/sudo/sudo.log)
+
+wall "
+	#Architecture: $arc
 	#CPU physical: $pcpu
 	#vCPU: $vcpu
 	#Memory Usage: $uram/${fram}MB ($pram%)
@@ -28,4 +30,5 @@ wall "	#Architecture: $arc
 	#Connexions TCP: $ctcp ESTABLISHED
 	#User log: $ulog
 	#Network: IP $ip ($mac)
-	#Sudo: $cmds cmd" 
+	#Sudo: $cmd cmd" 
+exec <&-
