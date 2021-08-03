@@ -1,5 +1,5 @@
 #!/bin/bash
-wall
+wall ''
 echo "#Architecture :" "$(uname -a)"
 echo "#CPU physical :" "$(grep 'physical id' /proc/cpuinfo | uniq | wc -l)"
 echo "#vCPU         :" "$(grep 'processor' /proc/cpuinfo | uniq | wc -l)"
