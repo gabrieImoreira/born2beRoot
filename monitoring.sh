@@ -16,6 +16,6 @@ echo "#Last Boot    :" "$(who -b | awk '{print $3,$4}')"
 echo "#LVM in Use   :" $(if [ $(/usr/sbin/blkid | grep -c '/dev/mapper') -eq 0 ]; then echo "no"; else echo "yes"; fi)
 echo "#Connexions TCP  :" "$(ss -s | awk '/TCP:/ {print $2}') ESTABLISHED"
 echo "#Users Logged :" "$(who | wc -l)"
-echo "#Network      :" "IP $(hostname -I)" "($(/usr/sbin/ifconfig | awk '/ether/ {print $2}'))"
+echo "#Network      :" "IP $(hostname -I)" "($(ip link show | grep link/ether | cut -c 16-32))"
 echo "#Sudo         :" "$(grep -c 'COMMAND' /var/log/sudo/sudo.log)" "cmd"
 
