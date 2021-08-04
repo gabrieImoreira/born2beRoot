@@ -1,5 +1,4 @@
 #!/bin/bash
-wall ''
 echo "#Architecture :" "$(uname -a)"
 echo "#CPU physical :" "$(grep 'physical id' /proc/cpuinfo | uniq | wc -l)"
 echo "#vCPU         :" "$(grep 'processor' /proc/cpuinfo | uniq | wc -l)"
@@ -16,6 +15,6 @@ echo "#Last Boot    :" "$(who -b | awk '{print $3,$4}')"
 echo "#LVM in Use   :" $(if [ $(/usr/sbin/blkid | grep -c '/dev/mapper') -eq 0 ]; then echo "no"; else echo "yes"; fi)
 echo "#Connexions TCP  :" "$(ss -s | awk '/TCP:/ {print $2}') ESTABLISHED"
 echo "#Users Logged :" "$(who | wc -l)"
-echo "#Network      :" "IP $(hostname -I)" "($(ip link show | grep link/ether | cut -c 16-32))"
+echo "#Network      :" "IP $(hostname -I | awk '{print $1}')" "($(ip link show | grep link/ether | cut -c 16-32))"
 echo "#Sudo         :" "$(grep -c 'COMMAND' /var/log/sudo/sudo.log)" "cmd"
 
