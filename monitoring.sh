@@ -1,4 +1,3 @@
-
 #!/bin/bash
 arc=$(uname -a)
 pcpu=$(grep "physical id" /proc/cpuinfo | uniq | wc -l)
