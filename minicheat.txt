@@ -54,10 +54,3 @@ rules sudo: https://www.digitalocean.com/community/tutorials/how-to-edit-the-sud
  - sudo crontab -u root -e
  - crontab -r or edit with #
 
- 
- 
- 
- 
- 
- 
- 
