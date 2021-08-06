@@ -34,10 +34,30 @@ check - hostnamectl
  - lsblk
 
 ===== SUDO =====
+rules sudo: https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file-pt
  - sudo --list
  - sudo visudo
  - sudo nano /var/log/sudo/sudo.log
 
 ===== UFW =====
+ - sudo ufw allow 8080
+ - sudo ufw status
+ - sudo ufw delete [5 or 6]
+ 
+===== SSH =====
+ - service ssh restart
+ - sudo systemctl status ssh
+ - ssh ssh gantonio@169.254.6.144 -p 4242
+ 
+===== Script monitoring =====
+ - sudo nano /usr/local/bin/monitoring.sh
+ - sudo crontab -u root -e
+ - crontab -r or edit with #
 
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
