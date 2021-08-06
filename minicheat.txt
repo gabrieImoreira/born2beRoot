@@ -1,14 +1,14 @@
-senhas:
+====== PASSWORDS ======
 start: 3usouc4detS4oP4ulo.
-gantonio BFFs2mwgua.
+gantonio: BFFs2mwgua.
 root: sOlove3162.
 
-Simple setup:
+===== Simple setup =====
 UFW - sudo ufw status [numbered]
 SSH - sudo systemctl status ssh
 Debian - uname -a
 
-User:
+===== User =====
 check group - getent group sudo
 check groups - groups
 How edit the password:
@@ -18,6 +18,26 @@ How edit the password:
 Create local user:
  - cut -d: -f1 /etc/passwd
  - sudo adduser new_username
- - sudo usermod -aG user42 your_username
  - chage -l your_new_username >>> check password
  - userdel -r new_username
+Create a group:
+ - sudo groupadd evaluating
+ - sudo usermod -aG evaluating your_username
+ - getent group evaluating
+ - groupdel evaluating
+
+===== Hostname and partitions ======
+check - hostnamectl
+ - hostnamectl set-hostname new_hostname
+ - sudo nano /etc/hosts >>> Change old_hostname with new_hostname
+ - sudo reboot
+ - lsblk
+
+===== SUDO =====
+ - sudo --list
+ - sudo visudo
+ - sudo nano /var/log/sudo/sudo.log
+
+===== UFW =====
+
+
