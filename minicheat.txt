@@ -1,0 +1,23 @@
+senhas:
+start: 3usouc4detS4oP4ulo.
+gantonio BFFs2mwgua.
+root: sOlove3162.
+
+Simple setup:
+UFW - sudo ufw status [numbered]
+SSH - sudo systemctl status ssh
+Debian - uname -a
+
+User:
+check group - getent group sudo
+check groups - groups
+How edit the password:
+ - sudo nano /etc/pam.d/common-password
+ - sudo nano /etc/login.defs
+ - sudo nano /etc/sudoers
+Create local user:
+ - cut -d: -f1 /etc/passwd
+ - sudo adduser new_username
+ - sudo usermod -aG user42 your_username
+ - chage -l your_new_username >>> check password
+ - userdel -r new_username
