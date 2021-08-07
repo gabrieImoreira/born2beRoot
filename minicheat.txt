@@ -11,6 +11,7 @@ Debian - uname -a
 ===== User =====
 check group - getent group sudo
 check groups - groups
+less /etc/group
 How edit the password:
  - sudo nano /etc/pam.d/common-password
  - sudo nano /etc/login.defs
@@ -27,7 +28,7 @@ Create a group:
  - groupdel evaluating
 
 ===== Hostname and partitions ======
-check - hostnamectl
+check - hostnamectl or hostname
  - hostnamectl set-hostname new_hostname
  - sudo nano /etc/hosts >>> Change old_hostname with new_hostname
  - sudo reboot
@@ -35,7 +36,7 @@ check - hostnamectl
 
 ===== SUDO =====
 rules sudo: https://www.digitalocean.com/community/tutorials/how-to-edit-the-sudoers-file-pt
- - sudo --list
+ - sudo -V
  - sudo visudo
  - sudo nano /var/log/sudo/sudo.log
 
